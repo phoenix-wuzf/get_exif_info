@@ -5,8 +5,10 @@ import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
+
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -25,7 +27,6 @@ public class Test {
             System.out.println("正处理第 "+ (i+1) +" 张, 共 "+tempList.length+"张图片");
             File jpegFile = new File(tempList[i].toString());
             Metadata metadata = ImageMetadataReader.readMetadata(jpegFile);
-
             for (Directory directory : metadata.getDirectories()) {
                 for (Tag tag : directory.getTags()) {
                     if (tag.getTagName() == "GPS Latitude") {

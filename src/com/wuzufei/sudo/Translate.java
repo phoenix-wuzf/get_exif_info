@@ -1,6 +1,5 @@
 package com.wuzufei.sudo;
 
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -42,7 +41,7 @@ public class Translate {
         if (original == null) {
             throw new IllegalArgumentException("original == null");
         }
-        if (original.getType() != imgType){
+        if (original.getType() != imgType) {
             // Create a buffered image
             BufferedImage image = new BufferedImage(original.getWidth(), original.getHeight(), imgType);
             // Draw the image onto the new buffer
@@ -54,7 +53,6 @@ public class Translate {
                 g.dispose();
             }
         }
-
         byte[] pixels = ((DataBufferByte) original.getRaster().getDataBuffer()).getData();
         Mat mat = Mat.eye(original.getHeight(), original.getWidth(), matType);
         mat.put(0, 0, pixels);
