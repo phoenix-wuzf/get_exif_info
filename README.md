@@ -1,2 +1,3 @@
-# sudo_solver
-just for solve sudo game
+# GET EXIF INFO
+该工程是读取图片中的属性信息，并将部分属性信息写到图片中；
+使用该工程时，将要处理的图片放置于source_jpg目录，处理后的结果会保存在result文件夹下面，处理前后图片名字相同；
