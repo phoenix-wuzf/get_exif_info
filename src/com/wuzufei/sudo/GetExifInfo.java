@@ -39,23 +39,22 @@ public class GetExifInfo {
                 }
             }
 
-            String[] tmp = lat.split("°");
             //1 获取原图
             Mat src = Imgcodecs.imread(tempList[i].toString());
             if (src.empty()) {
                 System.out.println("图片读取失败");
                 return;
             }
-            Font font = new Font("楷体", Font.PLAIN, 200);
+            Font font = new Font("楷体", Font.PLAIN, 120);
             BufferedImage bufImg = Translate.Mat2BufImg(src,".jpg");
             Graphics2D g = bufImg.createGraphics();
             g.drawImage(bufImg, 0, 0, bufImg.getWidth(),bufImg.getHeight(), null);
 
             g.setFont(font);              //设置字体类型
             g.setColor(Color.RED);        //设置字体颜色
-            g.drawString("经度: " + lon, 2800, 700); //设置经度书写位置
+            g.drawString("经度: " + lon, src.width() - 1500, src.height() / 20); //设置经度书写位置
             //g.drawString("精度: 23°22'223" + tmp[0] + "°°"+tmp[1], 2800, 900);
-            g.drawString("纬度: " + lat, 2800, 500); //设置纬度书写位置
+            g.drawString("纬度: " + lat, src.width() - 1500, src.height() / 20 + 120); //设置纬度书写位置
             g.dispose();
 
             src = Translate.BufImg2Mat(bufImg, BufferedImage.TYPE_3BYTE_BGR, CvType.CV_8UC3);
